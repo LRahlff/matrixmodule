@@ -57,32 +57,32 @@ def matrix_einlesen(ar):
 def matrix_rausschreiben(ar, m, e):
     import sympy as sy
     import json
-    return_matrix = []
+    return_matrix = {}
     if (ar.shape == (6, 6)):
-        if (ar[0, 0] != 0. and type(ar[0, 0]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 1, 'spalte': 1, 'A': float(ar[0, 0])})
+        if (ar[0, 0] != 0. and type(ar[0, 0]) == sy.core.numbers.Float): # Todo: m und e in den Namen?
+            return_matrix['matrix_A_1_1'] = {'m': m, 'e': e, 'zeile': 1, 'spalte': 1, 'A': float(ar[0, 0])}
         if (ar[0, 1] != 0. and type(ar[0, 1]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 1, 'spalte': 2, 'A': float(ar[0, 1])})
+            return_matrix['matrix_A_1_2'] = {'m': m, 'e': e, 'zeile': 1, 'spalte': 2, 'A': float(ar[0, 1])}
         if (ar[0, 2] != 0. and type(ar[0, 2]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 1, 'spalte': 3, 'A': float(ar[0, 2])})
+            return_matrix['matrix_A_1_3'] = {'m': m, 'e': e, 'zeile': 1, 'spalte': 3, 'A': float(ar[0, 2])}
         if (ar[2, 2] != 0. and type(ar[2, 2]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 3, 'spalte': 3, 'A': float(ar[2, 2])})
+            return_matrix['matrix_A_3_3'] = {'m': m, 'e': e, 'zeile': 3, 'spalte': 3, 'A': float(ar[2, 2])}
         if (ar[4, 4] != 0. and type(ar[4, 4]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 5, 'spalte': 5, 'A': float(ar[4, 4])})
+            return_matrix['matrix_A_5_5'] = {'m': m, 'e': e, 'zeile': 5, 'spalte': 5, 'A': float(ar[4, 4])}
 
     if (ar.shape == (3, 6)):
         if (ar[2, 0] != 0. and type(ar[2, 0]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 3, 'spalte': 1, 'B': float(ar[2, 0])})
+            return_matrix['matrix_B_3_1'] = {'m': m, 'e': e, 'zeile': 3, 'spalte': 1, 'B': float(ar[2, 0])}
         if (ar[2, 2] != 0. and type(ar[2, 2]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 3, 'spalte': 3, 'B': float(ar[2, 2])})
+            return_matrix['matrix_B_3_3'] = {'m': m, 'e': e, 'zeile': 3, 'spalte': 3, 'B': float(ar[2, 2])}
         if (ar[0, 4] != 0. and type(ar[0, 4]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 1, 'spalte': 5, 'B': float(ar[0, 4])})
+            return_matrix['matrix_B_1_5'] = {'m': m, 'e': e, 'zeile': 1, 'spalte': 5, 'B': float(ar[0, 4])}
 
     if (ar.shape == (3, 3)):
         if (ar[0, 0] != 0. and type(ar[0, 0]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 1, 'spalte': 1, 'C': float(ar[0, 0])})
+            return_matrix['matrix_C_1_1'] = {'m': m, 'e': e, 'zeile': 1, 'spalte': 1, 'C': float(ar[0, 0])}
         if (ar[2, 2] != 0. and type(ar[2, 2]) == sy.core.numbers.Float):
-            return_matrix.append({'m': m, 'e': e, 'zeile': 3, 'spalte': 3, 'C': float(ar[2, 2])})
+            return_matrix['matrix_C_1_3'] = {'m': m, 'e': e, 'zeile': 3, 'spalte': 3, 'C': float(ar[2, 2])}
     return json.dumps(return_matrix)
 
 def calc_vorzeichen(i):
